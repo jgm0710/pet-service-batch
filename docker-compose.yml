@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:14.3
+    container_name: pet-service
+    restart: unless-stopped
+    ports:
+      - "15432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: petserivce
+      POSTGRES_DB: pet_service
+    volumes:
+      - pet-service:/var/lib/postgresql/data
+volumes:
+  pet-service:
+
